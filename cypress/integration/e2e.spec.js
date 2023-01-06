@@ -12,7 +12,7 @@ context('Exercicio - Testes End-to-end - Fluxo de pedido', () => {
         cy.fixture('perfil').then(dados => {
             cy.login(dados.usuario, dados.senha)
         })
-        cy.limparCarrinho()
+        //cy.limparCarrinho()
         cy.visit('/produtos/')
     });
 
@@ -28,6 +28,8 @@ context('Exercicio - Testes End-to-end - Fluxo de pedido', () => {
         cy.preencherCheckout()
 
         cy.finalizandoCompra()
+
+        cy.get('.woocommerce-notice').should('contain', 'Obrigado')
     })
 
 

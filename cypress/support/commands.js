@@ -50,7 +50,7 @@ Cypress.Commands.add('limparCarrinho', () => {
 
 })
 
-Cypress.Commands.add('adicionarProduto', (ordemProduto, tamanho, cor, quantidade, ) => {
+Cypress.Commands.add('adicionarProduto', (ordemProduto, tamanho, cor, quantidade,) => {
     cy.get(`.grid.product:nth-of-type(${ordemProduto}) > .product-block`).click()
     cy.get('.button-variable-item-' + tamanho).click()
     cy.get('.button-variable-item-' + cor).click()
@@ -65,14 +65,10 @@ Cypress.Commands.add('preencherCheckout', () => {
         cy.get('#billing_last_name').clear().type(cliente.sobrenome)
         cy.get('#billing_company').clear().type(cliente.empresa)
         cy.get('#select2-billing_country-container').type(cliente.pais)
-        cy.get('#billing_address_1').clear().type(cliente.endereco, {
-            force: true
-        })
+        cy.get('#billing_address_1').clear({force: true}).type(cliente.endereco)
         cy.get('#billing_city').clear().type(cliente.cidade)
         cy.get('#select2-billing_state-container').type(cliente.estado)
-        cy.get('#billing_postcode').type(cliente.cep, {
-            force: true
-        })
+        cy.get('#billing_postcode').clear({ force: true }).type(cliente.cep)
         cy.get('#billing_phone').clear().type(cliente.cel)
         cy.get('#billing_email').clear().type(cliente.email)
 
