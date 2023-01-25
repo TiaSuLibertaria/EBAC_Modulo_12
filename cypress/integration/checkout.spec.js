@@ -1,4 +1,4 @@
-import EndPage from '../support/page_objects/nome-funcionliada.page'
+import EndPage from '../support/page_objects/nome-funcionalidade.page'
 
 describe('Funcionalidade endereços', () => {
   beforeEach(() => {

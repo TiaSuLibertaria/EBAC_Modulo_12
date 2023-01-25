@@ -19,15 +19,15 @@ context('Exercicio - Testes End-to-end - Fluxo de pedido', () => {
     it('Deve fazer um pedido na loja Ebac Shop de ponta a ponta', () => {
         cy.limparCarrinho()
         cy.visit('/produtos/page/2')
-        cy.adicionarProduto(1, 'S', 'Blue', 1)
+        cy.adicionarProduto(5, 'S', 'Blue', 2)
         cy.visit('/produtos/page/2')
-        cy.adicionarProduto(2, 'M', 'Red', 1)
+        cy.adicionarProduto(2, 32, 'Red', 1)
         cy.visit('/produtos/')
         cy.adicionarProduto(2, 'XS', 'Blue', 2)
 
         cy.preencherCheckout()
 
-        cy.finalizandoCompra()
+        cy.finalizarCompra()
 
         cy.get('.woocommerce-notice').should('contain', 'Obrigado')
     })

@@ -74,7 +74,7 @@ Cypress.Commands.add('preencherCheckout', () => {
 
     })
 })
-Cypress.Commands.add('finalizandoCompra', () => {
+Cypress.Commands.add('finalizarCompra', () => {
     cy.get('#payment_method_cod').click()
     cy.get('#terms').click()
     cy.get('#place_order').click()
